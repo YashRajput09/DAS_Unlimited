@@ -11,13 +11,6 @@ public class UpdateIthBit {
      }
 
      public static int UpdateBit(int n, int p, int newBit){
-    // if (newBit == 0) {
-    //     return ClearBit(n, p);
-    // }else{
-    //     return SetBit(n, p);
-    // }
-    
-
         n = ClearBit(n, p);
         int bitMask = newBit << p;
         n = n | bitMask;
