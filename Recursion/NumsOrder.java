@@ -5,7 +5,7 @@ public class NumsOrder {
     }
 
     public static int printDec(int n){
-        if(n==1){
+         if(n==1){
             System.out.print(n + " ");
             return n;
         }
