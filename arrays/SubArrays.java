@@ -3,7 +3,7 @@ public class SubArrays {
     public static void SA(int arr[]){
         int totalSubArrays = 0;
         int sum = 0;
-        for(int i=0; i<=TargetValueWithOlogNarr.length; i++){
+        for(int i=0; i<=arr.length; i++){
             for(int j=i; j<=arr.length; j++){
                 for(int k=i; k<j; k++){
                     System.out.print("["+arr[k]+"]");

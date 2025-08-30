@@ -15,6 +15,6 @@ public class CheckRepetedNumber {
         // int nums[] = {1, 2, 3, 1};
         int nums[] = {1, 2, 3, 4};
         Boolean result =  CRN(nums);
-        System.out.println(result);
+        System.out.println(result); //Timecomplexity O(n2) 
      }
 }
