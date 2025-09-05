@@ -1,4 +1,4 @@
-public class SelectionShort {
+public class SelectionSort {
 
     public static void SS(int arr[]){
         for(int i=0; i<arr.length-1; i++){
