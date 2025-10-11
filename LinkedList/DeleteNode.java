@@ -12,7 +12,7 @@ public class DeleteNode {
     public static Node head;
     public static Node tail;
 
-        public static void insertAtLast(int data) {
+        public void insertAtLast(int data) {
         Node newNode = new Node(data);
         if (head == null) {
             head = tail = newNode;
@@ -21,7 +21,7 @@ public class DeleteNode {
         tail = newNode;
     }
 
-    public static void deleteFirstNode() {
+    public void deleteFirstNode() {
         if (head == null) {
             System.out.println("List is empty");
             return;
@@ -32,7 +32,7 @@ public class DeleteNode {
         }
     }
 
-    public static void deleteLastNode() {
+    public void deleteLastNode() {
         if (head == null) {
             System.out.println("List is empty");
             return;
@@ -44,7 +44,7 @@ public class DeleteNode {
         temp.next = null;
     }
 
-    public static void deleteIdxNode(int idx){
+    public void deleteIdxNode(int idx){
         if(idx == 0){
             deleteFirstNode();
         }
@@ -57,7 +57,24 @@ public class DeleteNode {
         temp.next = temp.next.next;
     }
 
-    public static void traverseList() {
+    public void deleteNthFromEnd(int n){
+        Node temp = head;
+        int size = 0;
+        while (temp != null) {
+            temp = temp.next;
+            size++; 
+        }
+        int i=1;
+        Node prev = head;
+        while (i < size-n) {
+            prev = prev.next;
+            i++;
+        }
+        prev.next = prev.next.next;
+        return;
+    }
+
+    public void traverseList() {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + " -> ");
@@ -67,15 +84,18 @@ public class DeleteNode {
     }
 
     public static void main(String[] args) {
+        DeleteNode dn = new DeleteNode();
         for(int i=1; i<7; i++){
-            insertAtLast(i);
+            dn.insertAtLast(i);
         }
-        traverseList();
-        deleteFirstNode();
-        traverseList();
-        deleteLastNode();
-        traverseList();
-        deleteIdxNode(1);
-        traverseList();
+        dn.traverseList();
+        // dn.deleteFirstNode();
+        // dn.traverseList();
+        // dn.deleteLastNode();
+        // dn.traverseList();
+        // dn.deleteIdxNode(1);
+        // dn.traverseList();
+        dn.deleteNthFromEnd(3);
+        dn.traverseList();
     }
 }
