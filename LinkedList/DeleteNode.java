@@ -57,6 +57,15 @@ public class DeleteNode {
         temp.next = temp.next.next;
     }
 
+        public void traverseList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
     public void deleteNthFromEnd(int n){
         Node temp = head;
         int size = 0;
@@ -74,27 +83,12 @@ public class DeleteNode {
         return;
     }
 
-    public void traverseList() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " -> ");
-            temp = temp.next;
-        }
-        System.out.println("null");
-    }
-
     public static void main(String[] args) {
         DeleteNode dn = new DeleteNode();
         for(int i=1; i<7; i++){
             dn.insertAtLast(i);
         }
         dn.traverseList();
-        // dn.deleteFirstNode();
-        // dn.traverseList();
-        // dn.deleteLastNode();
-        // dn.traverseList();
-        // dn.deleteIdxNode(1);
-        // dn.traverseList();
         dn.deleteNthFromEnd(3);
         dn.traverseList();
     }

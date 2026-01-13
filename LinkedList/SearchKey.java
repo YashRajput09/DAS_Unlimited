@@ -1,4 +1,4 @@
-public class SearchKey {
+class SearchKey {
     public static class Node {
         int data;
         Node next;
@@ -29,18 +29,18 @@ public class SearchKey {
         tail = newNode;
     }
 
-    public void Search(int key) {
+    public int Search(int key) {
         int i = 0;
         Node temp = head;
         while (temp != null) {
             if (temp.data == key) {
-                System.out.println("Key found at index: " + i);
-                return;
+                return i;
             }
             temp = temp.next;
             i++;
         }
         System.out.println("key not found");
+        return -1;
     }
 
     public int helper(Node head, int key) {
@@ -68,8 +68,8 @@ public class SearchKey {
         sk.InsertNode(3);
         sk.InsertNode(4);
         sk.InsertNode(5);
-        sk.Search(3);
-        System.out.println("Key found at index: " + sk.RecursiveSearch(1));
+        System.out.println("'Iterative find -> 'Key found at index: " + sk.Search(3));
+        System.out.println("'Recursive find ->'Key found at index: " + sk.RecursiveSearch(1));
         sk.traverseList();
     }
 }
