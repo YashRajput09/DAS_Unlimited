@@ -38,6 +38,7 @@ public class BinaryTreeA {
         inorder(root.right);
     }
 
+    // height of a tree
     static int height(Node root){
        if (root == null) return 0;
        return 1 + Math.max(height(root.left), height(root.right));
@@ -98,6 +99,47 @@ public class BinaryTreeA {
         return Math.max(selfDiam, Math.max(leftDiam, rightDiam));
     }
 
+    // Diameter of a Tree O(n)
+    public static int optimizedDiameter(Node root){
+        if(root == null){
+            return 0;
+        }
+
+    }
+
+    // check Subtree of a Tree
+
+    public static boolean isIdentical(Node node, Node subRoot){
+        if(node == null && subRoot == null){
+            return true;
+        } else if(node == null || subRoot == null || node.data != subRoot.data){
+            return false;
+        }
+
+        if(!isIdentical(node.left, subRoot.left)){
+            return false;
+        }
+        if(!isIdentical(node.right, subRoot.right)){
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean isSubtree(Node root, Node subRoot){
+        if(root == null) return false;
+
+        if(root.data == subRoot.data){
+            if(isIdentical(root, subRoot)){
+                return true;
+            }
+        }
+
+        return isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot);
+
+    }
+
+    // Main function
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -112,6 +154,14 @@ public class BinaryTreeA {
                 //   / \   \
                 //  4   5   6
 
+        Node subRoot = new Node(2);
+        subRoot.left = new Node(4);
+        subRoot.right = new Node(5);
+
+                //    2  
+                //   / \ 
+                //  4   5 
+
         preorder(root);
         System.out.println();
         postorder(root);
@@ -123,6 +173,8 @@ public class BinaryTreeA {
         levelorder(root);
         System.out.println("Total Nodes : "+countNode(root)) ;
         System.out.println("Diameter of tree: "+ diameter(root));
+        System.out.println("Subtree of tree: "+ isSubtree(root, subRoot));
+        
         
     }
 }
