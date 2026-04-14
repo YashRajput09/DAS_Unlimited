@@ -100,10 +100,24 @@ public class BinaryTreeA {
     }
 
     // Diameter of a Tree O(n)
-    public static int optimizedDiameter(Node root){
-        if(root == null){
-            return 0;
+    static class Info{
+        int dim;
+        int ht;
+
+        Info(int dim, int ht){
+            this.dim = dim;
+            this.ht = ht;
         }
+    }
+    public static Info optimizedDiameter(Node root){
+        if(root == null){
+            return new Info(0, 0);
+        }
+        Info leftInfo = optimizedDiameter(root.left);
+        Info rightInfo = optimizedDiameter(root.right);
+        int dim = Math.max(leftInfo.ht + rightInfo.ht + 1, Math.max(leftInfo.dim, rightInfo.dim));
+        int ht = 1 + Math.max(leftInfo.ht, rightInfo.ht);
+        return new Info(dim, ht);
 
     }
 
@@ -173,6 +187,7 @@ public class BinaryTreeA {
         levelorder(root);
         System.out.println("Total Nodes : "+countNode(root)) ;
         System.out.println("Diameter of tree: "+ diameter(root));
+        System.out.println("Optimized Diameter of tree: "+ optimizedDiameter(root).dim);
         System.out.println("Subtree of tree: "+ isSubtree(root, subRoot));
         
         
