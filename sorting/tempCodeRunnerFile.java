@@ -10,7 +10,6 @@ public class BubbleSort {
             }
         }
     }
-
     public static void main(String[] args) {
          int arr[] = {3, 6, 2, 1, 8, 7, 4, 5, 3, 1};
         BS(arr);
@@ -18,4 +17,3 @@ public class BubbleSort {
             System.out.print(arr[i]+" ");
         }
     }
-}
